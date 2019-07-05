@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Van Nguyen - Product Designer`,
+    description: `Van Nguyen Portfolio`,
+    author: `vaanres <vaares@gmail.com>`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,6 +27,30 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        precision: 8,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-emotion`,
+    },
+    `gatsby-transformer-remark`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
