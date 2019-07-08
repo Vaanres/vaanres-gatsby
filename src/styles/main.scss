@@ -1,0 +1,10 @@
+@import "./colors";
+@import "./fonts";
+@import "./override";
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
