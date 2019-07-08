@@ -15,8 +15,8 @@ const AboutExp = () => {
               id
               frontmatter {
                 title
-                startDate
-                endDate
+                startDate(formatString: "MMMM YYYY")
+                endDate(formatString: "MMMM YYYY")
                 company
                 image
               }
@@ -31,11 +31,20 @@ const AboutExp = () => {
   return (
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div className="row" key={node.id}>
-          <div className="col-12">
+        <div className="row mb-5" key={node.id}>
+          <div className="col-12 col-md-4 mb-3 mb-md-0">
             <img src="https://via.placeholder.com/150" />
+            <div className="text-secondary">
+              <small>
+                {node.frontmatter.startDate}
+                {node.frontmatter.endDate !== null &&
+                  node.frontmatter.endDate !== 'Invalid date' && (
+                    <span> – {node.frontmatter.endDate}</span>
+                  )}
+              </small>
+            </div>
           </div>
-          <div className="col-12">
+          <div className="col-12 col-md-8">
             <h3>{node.frontmatter.title}</h3>
             <div dangerouslySetInnerHTML={{ __html: node.html }} />
           </div>
