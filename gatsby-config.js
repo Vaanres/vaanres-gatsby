@@ -2,9 +2,18 @@ module.exports = {
   siteMetadata: {
     title: `Van Nguyen - Product Designer`,
     description: `Van Nguyen Portfolio`,
-    author: `vaanres <vaares@gmail.com>`,
+    author: `Van Nguyen`,
+    email: `vaanres@gmail.com`,
+    socials: {
+      twitter: `https://twitter.com/Vaanres`,
+      facebook: `https://www.facebook.com/vaanres`,
+      linkedin: `https://www.linkedin.com/in/nguyen-le-van/`,
+      behace: `https://www.behance.net/Vaanres`,
+      dribble: `https://dribbble.com/Vaanres`,
+    },
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -18,12 +27,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Van Nguyen - Product Designer`,
+        short_name: `Van Nguyen`,
+        description: 'Van Nguyen Portfolio',
+        homepage_url: 'http://vannguyen-uxui.firebaseapp.com',
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
@@ -49,7 +60,23 @@ module.exports = {
     {
       resolve: `gatsby-plugin-emotion`,
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 500,
+              linkImagesToOriginal: true,
+              sizeByPixelDensity: true,
+              showCaptions: true,
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
