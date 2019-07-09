@@ -4,6 +4,8 @@ import AboutIntro from './components/about-intro'
 import AboutExp from './components/about-exp'
 import AboutCSS from './../../styles/modules/about.module.scss'
 
+console.log(AboutCSS)
+
 export default () => (
   <Layout>
     <section>
